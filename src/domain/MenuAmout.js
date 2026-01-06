@@ -19,17 +19,31 @@ Input에서 받은 문자열을 각각의 메뉴에 매핑해서 넣어주는 �
 이렇게임
 */
 
-const menu = [
-  { type: '애피타이저', name: '양송이수프', price: 6000, Amount: 0 },
-  { type: '애피타이저', name: '타파스', price: 5500, Amount: 0 },
-  { type: '애피타이저', name: '시저샐러드', price: 8000, Amount: 0 },
-  { type: '메인', name: '양송이수프', price: 20000, Amount: 0 },
-  { type: '메인', name: '바비큐립', price: 54000, Amount: 0 },
-  { type: '메인', name: '해산물파스타', price: 35000, Amount: 0 },
-  { type: '메인', name: '크리스마스파스타', price: 25000, Amount: 0 },
-  { type: '디저트', name: '초코케이크', price: 15000, Amount: 0 },
-  { type: '디저트', name: '아이스크림', price: 5000, Amount: 0 },
-  { type: '음료', name: '제로콜라', price: 3000, Amount: 0 },
-  { type: '음료', name: '레드와인', price: 60000, Amount: 0 },
-  { type: '음료', name: '샴페인', price: 25000, Amount: 0 }
-];
+// const menu = [
+//   { type: '애피타이저', name: '양송이수프', price: 6000},
+//   { type: '애피타이저', name: '타파스', price: 5500},
+//   { type: '애피타이저', name: '시저샐러드', price: 8000},
+//   { type: '메인', name: '양송이수프', price: 20000},
+//   { type: '메인', name: '바비큐립', price: 54000},
+//   { type: '메인', name: '해산물파스타', price: 35000},
+//   { type: '메인', name: '크리스마스파스타', price: 25000},
+//   { type: '디저트', name: '초코케이크', price: 15000},
+//   { type: '디저트', name: '아이스크림', price: 5000},
+//   { type: '음료', name: '제로콜라', price: 3000},
+//   { type: '음료', name: '레드와인', price: 60000},
+//   { type: '음료', name: '샴페인', price: 25000}
+// ];
+
+
+export function MenuAmount(Usermenu) {
+  const itemsArray = Usermenu.split(',');
+  const orderObject = {};
+  itemsArray.forEach(item => {
+  const [menu, quantity] = item.split('-');
+  orderObject[menu] = Number(quantity);
+});
+
+  return orderObject ;
+}
+
+// 형식 -> 객체의 배열로 반환 { '티본스테이크': 1, '바비큐립': 1, '초코케이크': 2, '제로콜라': 1 }

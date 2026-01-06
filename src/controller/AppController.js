@@ -14,6 +14,18 @@ class AppController {
       try {
         const value = await this.inputView.readDate();
         return new VisitDate(value);
+
+        /*
+          VisitDate 객체 반환
+          {
+            day: 3,
+            isWeekend: function...
+            isWeekday: function...
+            isStarDay: function...
+            getDdayDiscount: function...
+            getSpecialDiscount: function...
+          }
+        */
       } catch (error) {
         this.outputView.printError(error.message);
       }
